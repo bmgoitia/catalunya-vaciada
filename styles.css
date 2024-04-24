@@ -112,7 +112,7 @@ h1,h2,h3, h4, h5, h6, p{
     font-size: .6rem;
     font-weight: 600;
     text-transform: uppercase;
-    color: var(--lv_blue)
+    color: var(--lv_blue);
     white-space: nowrap; /* Evita que el texto se envuelva a la siguiente línea */
     overflow: hidden; /* Oculta el texto que excede el ancho del elemento */
     text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto oculto */
