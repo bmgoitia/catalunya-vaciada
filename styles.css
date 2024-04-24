@@ -1,0 +1,260 @@
+
+:root {
+    --lv_blue: #001c4c;
+}
+
+html{
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: inherit;
+}
+
+h1,h2,h3, h4, h5, h6, p{
+    margin: 0;
+}
+
+
+
+.lv_devWrapper{
+    display: flex;
+    flex-direction: column;
+    height:100vh;
+}
+
+
+/* TITLE */
+
+#lv_title{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#lv_title h2{
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+
+#lv_title h4{
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+
+
+/* CAROUSEL  */
+.lv_carousel-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    z-index: 1001;
+}
+
+
+.lv_carousel-items {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.lv_carousel-items::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.lv_carousel-itemWrapper{
+    padding: 5px;
+
+}
+
+
+.lv_carousel-item {
+    flex: 0 0 22%;
+    margin: 10px;
+    border: 2px solid #d7d7d7;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px; /* Añade bordes redondeados */
+    overflow: hidden; /* Asegura que el contenido también respete los bordes redondeados */
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+.lv_carousel-item img {
+    width: 100%;
+    height: 50px;
+    object-fit: cover;
+}
+
+.lv_carousel-caption {
+    
+}
+
+
+.lv_carousel-caption p{
+    text-align: center;
+    font-size: .6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--lv_blue)
+    white-space: nowrap; /* Evita que el texto se envuelva a la siguiente línea */
+    overflow: hidden; /* Oculta el texto que excede el ancho del elemento */
+    text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto oculto */
+}
+
+
+/* Carousel signs */
+
+.lv_carouselSigns{
+    width: 100%;
+    margin: 7px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    
+}
+
+.lv_carouselSigns span{
+    display:inline-block;
+    padding: 4px 15px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    color: var(--lv_blue);
+    font-size: .8rem;
+    cursor: pointer;
+
+    
+}
+
+
+.lv_arrow {
+    transform: translateY(-20%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 36px; /* Aumentar el tamaño de la fuente para flechas más grandes */
+    padding: 0 15px; /* Ajustar el padding para mayor visibilidad y tocabilidad */
+    color: #333; /* Color más visible para las flechas */
+}
+
+.lv_arrow-left {
+    left: 10px;
+}
+
+.lv_arrow-right {
+    right: 10px;
+}
+
+
+
+
+
+/*  MAP */
+
+.lv_mapWrapper{
+    flex-grow: 1;
+}
+
+
+.lv_map-container {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/* MODAL */
+
+
+
+.lv_modal {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Inicialmente invisible */
+    transform: scale(0.95); /* Comienza un poco más pequeño */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Transición suave para opacidad y escala */
+    pointer-events: none; /* Evita interacción hasta que esté completamente visible */
+    z-index: 1000; /* Asegura que esté en el frente */
+    visibility: hidden; /* Asegura que no sea visible cuando está cerrado */
+}
+
+.lv_modal.show {
+    opacity: 1; /* Hace el modal completamente visible */
+    transform: scale(1); /* Escala a tamaño normal */
+    pointer-events: auto; /* Permite interacción con el modal */
+    visibility: visible; /* Hace el modal visible cuando está activo */
+}
+
+.lv_modal-content {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+}
+
+.lv_modal-content a{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--lv_blue);
+
+}
+
+.lv_modalWrapper{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.lv_modal-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.lv_modal-info {
+    flex-grow: 1;
+}
+
+.lv_modalInfoTitle{
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.lv_modalInfoDetail{
+    font-size: .9rem;
+}
+
+
+.lv_close {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 1.5em;
+}
+

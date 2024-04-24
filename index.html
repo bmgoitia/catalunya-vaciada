@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lejos de la capital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="lv_devWrapper">
+
+        <div id="lv_title">
+            <h2>Lejos de la capital</h2>
+            <h4>La Catalunya vaciada</h4>
+        </div>
+
+
+        <div id="lv_carousel" class="lv_carousel-container">
+            <div id="lv_carousel_items" class="lv_carousel-items"></div>
+            <div class="lv_carouselSigns">
+                <button class="lv_arrow lv_arrow-left" onclick="scrollCarousel(-1)">&#8592;</button>
+                <span class="lv_inicio" "> Inicio</span>
+                <button class="lv_arrow lv_arrow-right" onclick="scrollCarousel(1)">&#8594;</button>
+
+            </div>
+        </div>
+
+        <div class="lv_mapWrapper">
+            <div id="lv_map" class="lv_map-container"></div>
+        </div>
+        
+
+    </div>
+    
+
+    <div id="lv_modal" class="lv_modal" style="display:none;">
+        <div class="lv_modal-content">
+            <a id="lv_modal-link" href="" target="_blank">
+                <div class="lv_modalWrapper">
+                    <img id="lv_modal-img" src="" alt="" class="lv_modal-image">
+                    <div class="lv_modal-info">
+                        <h4 class="lv_modalInfoTitle"></h4>
+                        <p class="lv_modalInfoDetail"></p>
+                    </div>
+                
+
+                </div>
+            </a>
+            <button class="lv_close" onclick="hideModal()">x</button>
+        </div>
+        
+    </div>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
