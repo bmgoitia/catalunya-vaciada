@@ -60,7 +60,7 @@ const menuItems=[
         "nombreLoc": "Els Prats de Rei",
         "imgLoc": "./img/9_Prats.jpg",
         "coordsLoc": [1.5428045867230935, 41.70596334163014],
-        "urlTitle": "Músicos de todo el mundo para revitalizar el núcleo histórico",
+        "urlTitle": "Músicos para revitalizar el núcleo histórico",
         "urlLoc": "https://www.lavanguardia.com/local/barcelona/20221010/8559183/musicos-mundo-revitalizan-nucleo-historico-els-prats-rei.html"
     },
     {
@@ -90,7 +90,8 @@ const menuItems=[
 
 
 
-
+const lv_mapboxCoords = [1.6676800, 41.4204600];
+const lv_mapboxZoom = 6.4;
 
 
 
@@ -103,23 +104,138 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const bounds = new mapboxgl.LngLatBounds();
     menuItems.forEach(item => {
-        bounds.extend(item.coordsLoc);  // Extiende los límites antes de inicializar el mapa
+        bounds.extend(item.coordsLoc);  
     });
         
     const carousel = document.getElementById('lv_carousel_items');
 
-   
 
     const map = new mapboxgl.Map({
         container: 'lv_map',
-        style: 'mapbox://styles/mapbox/satellite-streets-v12',
-        bounds: bounds,
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: lv_mapboxCoords,
+        zoom: lv_mapboxZoom,
+        /* bounds: bounds,
         fitBoundsOptions: {
-            padding: 50
-        }
+            padding: 120
+        } */
+        
     });
 
+   
+
+
+
+
+
+
+
+
+    map.on('load', function () {
+
+        map.setLayoutProperty('country-label', 'text-field', ['get', 'name_es']);
+        map.setLayoutProperty('water-line-label', 'text-field', ['get', 'name_es']);
+        
+
+
+        map.addSource('world', {
+            type: 'geojson',
+            data: '../geojson/world_sin_3.geojson'
+        });
+    
+        // Añadir la capa para la primera source
+        map.addLayer({
+            id: 'world-layer',
+            type: 'fill',
+            source: 'world',
+            paint: {
+                'fill-color': '#000',
+                'fill-opacity': 0.3
+            }
+        });
+
+
+
+
+        map.addSource('france', {
+            type: 'geojson',
+            data: '../geojson/france.geojson'
+        });
+    
+        map.addLayer({
+            id: 'france-layer',
+            type: 'fill',
+            source: 'france',
+            paint: {
+                'fill-color': '#000',
+                'fill-opacity': 0.3
+            }
+        });
+
+
+
+        map.addSource('portugal', {
+            type: 'geojson',
+            data: '../geojson/portugal.geojson'
+        });
+    
+        map.addLayer({
+            id: 'portugal-layer',
+            type: 'fill',
+            source: 'portugal',
+            paint: {
+                'fill-color': '#000',
+                'fill-opacity': 0.3
+            }
+        });
+
+        
+
+/*         map.addSource('andorra', {
+            type: 'geojson',
+            data: 'andorra2.geojson'
+        });
+    
+        map.addLayer({
+            id: 'andorra-layer',
+            type: 'fill',
+            source: 'andorra',
+            paint: {
+                'fill-color': '#000',
+                'fill-opacity': 0.3
+            }
+        });  */
+    
+        map.addSource('ccaa', {
+            type: 'geojson',
+            data: '../geojson/CCAA_sin_Cat.geojson'
+        });
+    
+        map.addLayer({
+            id: 'ccaa-layer',
+            type: 'fill',
+            source: 'ccaa',
+            paint: {
+                'fill-color': '#000',
+                'fill-opacity': 0.1
+            }
+        });
+
+        
+        
+
+
+
+    });
+
+
+
+
+
+
+
     map.addControl(new mapboxgl.NavigationControl());
+    
 
     menuItems.forEach(item => {
         
@@ -147,13 +263,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function handleCarouselItemClick(item) {
-         // Oculta el modal inmediatamente para evitar que permanezca visible
+         
         hideModal();  
 
-    // Asegúrate de quitar cualquier evento anterior para evitar duplicados
+    // Quitar cualquier evento anterior para evitar duplicados
         /* map.off('moveend');   */
 
-    // Inicia la transición de la vista del mapa hacia el nuevo punto
+    
         map.flyTo({ center: item.coordsLoc, zoom: 16 });
 
     // Una vez que el mapa termina de moverse, muestra el modal
@@ -166,10 +282,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('lv_modal-img').src = item.imgLoc;
         document.getElementById('lv_modal-link').href = item.urlLoc;
 /*         document.getElementById('lv_modal-link').textContent = `${item.nombreLoc} - ${item.urlTitle} →`;
- */        document.querySelector('.lv_modalInfoTitle').textContent = item.nombreLoc;
-        document.querySelector('.lv_modalInfoDetail').textContent = `${item.urlTitle} →`;
+ */     document.querySelector('.lv_modalInfoTitle').textContent = item.nombreLoc;
+        document.querySelector('.lv_modalInfoDetail').innerHTML = `${item.urlTitle} <span> ⤴ </span>`;
 
-        modal.style.display = 'flex';  // Prepara el modal para ser visible
+        modal.style.display = 'flex';  
         // Añadir un pequeño retraso para asegurar que la transición CSS tenga tiempo de activarse
         setTimeout(() => {
             modal.classList.add('show');
@@ -195,13 +311,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     lv_closeButton.addEventListener('click', hideModal);
 
+
+
     function lv_backToBounds(){
-        map.fitBounds(bounds, {
-            padding: 50
-        });
+
+        map.flyTo({
+            center: lv_mapboxCoords, 
+            zoom: lv_mapboxZoom
+            },
+            {
+                duration: 0.5
+            }
+        );
 
         hideModal();
     }
+
 
     const lv_butInicio = document.querySelector('.lv_inicio');
 
