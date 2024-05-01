@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lejos de la capital</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
 </head>
@@ -16,22 +14,26 @@
     <div class="lv_devWrapper">
 
         <div id="lv_title">
-            <h2>Lejos de la capital</h2>
-            <h4>La Catalunya vaciada</h4>
+           
+            <h3>Consulta los pueblos de la serie 'Lejos de la capital' </h3>
+            <p>Haz click en el carrusel o en el mapa para ampliar</p>
         </div>
 
 
         <div id="lv_carousel" class="lv_carousel-container">
             <div id="lv_carousel_items" class="lv_carousel-items"></div>
-            <div class="lv_carouselSigns">
-                <button class="lv_arrow lv_arrow-left" onclick="scrollCarousel(-1)">&#8592;</button>
-                <span class="lv_inicio"> Inicio</span>
-                <button class="lv_arrow lv_arrow-right" onclick="scrollCarousel(1)">&#8594;</button>
+            
+                <div class="lv_arrow lv_arrow-left" onclick="scrollCarousel(-1)"> <span>&#8249;</span></div>
+                
+                <div class="lv_arrow lv_arrow-right" onclick="scrollCarousel(1)"> <span>&#8250;</span></div>
 
-            </div>
+            
         </div>
 
         <div class="lv_mapWrapper">
+            <div class="lv_inicio"> 
+               <span>Inicio</span> 
+            </div> 
             <div id="lv_map" class="lv_map-container"></div>
         </div>
         
