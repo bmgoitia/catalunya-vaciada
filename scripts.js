@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         map.addSource('world', {
             type: 'geojson',
-            data: '../geojson/world_sin_3.geojson'
+            data: './geojson/world_sin_3.geojson'
         });
     
         // Añadir la capa para la primera source
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         map.addSource('france', {
             type: 'geojson',
-            data: '../geojson/france.geojson'
+            data: './geojson/france.geojson'
         });
     
         map.addLayer({
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         map.addSource('portugal', {
             type: 'geojson',
-            data: '../geojson/portugal.geojson'
+            data: './geojson/portugal.geojson'
         });
     
         map.addLayer({
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         map.addSource('ccaa', {
             type: 'geojson',
-            data: '../geojson/CCAA_sin_Cat.geojson'
+            data: './geojson/CCAA_sin_Cat.geojson'
         });
     
         map.addLayer({
