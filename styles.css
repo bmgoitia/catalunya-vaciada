@@ -3,6 +3,88 @@
     --lv_blue: #001c4c;
 }
 
+
+/* TIMES HEADLINE */
+
+
+@font-face{
+    font-family: 'HLight';
+    src: url('./fonts/TiemposHeadline-Light.woff2') format('woff');
+}
+
+@font-face{
+  font-family: 'HRegular';
+  src: url('./fonts/TiemposHeadline-Regular.woff2') format('woff');
+}
+
+
+@font-face{
+  font-family: 'HMedium';
+  src: url('./fonts/TiemposHeadline-Medium.woff2') format('woff');
+}
+
+
+@font-face{
+  font-family: 'HSemibold';
+  src: url('./fonts/TiemposHeadline-Semibold.woff2') format('woff');
+}
+
+
+@font-face{
+  font-family: 'HBold';
+  src: url('./fonts/TiemposHeadline-Bold.woff2') format('woff');
+}
+
+
+@font-face{
+  font-family: 'HBlack';
+  src: url('./fonts/TiemposHeadline-Black.woff2') format('woff');
+}
+
+
+
+
+
+
+/* TIMES TEXT */
+
+@font-face{
+  font-family: 'TRegular';
+  src: url('./fonts/TiemposText-Regular.woff2') format('woff');
+}
+
+
+@font-face{
+  font-family: 'TRegularItalic';
+  src: url('./fonts/TiemposTextApp-RegularItalic.woff') format('woff');
+}
+
+
+@font-face{
+  font-family: 'TMedium';
+  src: url('./fonts/TiemposText-Medium.woff2') format('woff');
+}
+
+
+@font-face{
+  font-family: 'TSemibold';
+  src: url('./fonts/TiemposText-Semibold.woff2') format('woff');
+}
+
+
+@font-face{
+  font-family: 'TBold';
+  src: url('./fonts/TiemposText-Bold.woff2') format('woff');
+}
+
+
+/* font-family: 'TRegular', serif; */
+
+  
+
+  
+  
+
 html{
     box-sizing: border-box;
 }
@@ -10,7 +92,7 @@ html{
 body{
     padding: 0;
     margin: 0;
-    font-family: "Montserrat", sans-serif;
+    
 }
 
 *,
@@ -21,6 +103,7 @@ body{
 
 h1,h2,h3, h4, h5, h6, p{
     margin: 0;
+    
 }
 
 
@@ -39,18 +122,23 @@ h1,h2,h3, h4, h5, h6, p{
 
 #lv_title{
     margin: 0 auto;
+    padding: 15px 10%;
     text-align: center;
+
 }
 
-#lv_title h2{
-    margin-top: 7px;
-    margin-bottom: 5px;
+#lv_title h3{
+    font-family: 'HMedium', serif;
+    margin-top: 5px;
+    margin-bottom: 7px;
 }
 
-#lv_title h4{
-    margin-top: 7px;
-    margin-bottom: 5px;
+#lv_title p{
+    font-size: .8rem;
+    font-family: 'TRegular', serif;
+    font-style: italic;
 }
+
 
 
 /* CAROUSEL  */
@@ -62,16 +150,19 @@ h1,h2,h3, h4, h5, h6, p{
     overflow: hidden;
     background-color: rgb(255, 255, 255);
     z-index: 1001;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 
 .lv_carousel-items {
     display: flex;
     width: 100%;
+    margin-left: 25px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
 }
 
 .lv_carousel-items::-webkit-scrollbar {
@@ -90,8 +181,8 @@ h1,h2,h3, h4, h5, h6, p{
     border: 2px solid #d7d7d7;
     position: relative;
     cursor: pointer;
-    border-radius: 5px; /* Añade bordes redondeados */
-    overflow: hidden; /* Asegura que el contenido también respete los bordes redondeados */
+    border-radius: 5px; 
+    overflow: hidden;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -108,58 +199,54 @@ h1,h2,h3, h4, h5, h6, p{
 
 
 .lv_carousel-caption p{
+    font-family: 'TRegular', serif;
     text-align: center;
-    font-size: .6rem;
+    font-size: .63rem;
     font-weight: 600;
     text-transform: uppercase;
     color: var(--lv_blue);
-    white-space: nowrap; /* Evita que el texto se envuelva a la siguiente línea */
-    overflow: hidden; /* Oculta el texto que excede el ancho del elemento */
-    text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto oculto */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 
 /* Carousel signs */
 
-.lv_carouselSigns{
-    width: 100%;
-    margin: 7px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    
-}
 
-.lv_carouselSigns span{
-    display:inline-block;
-    padding: 4px 15px;
-    border: 1px solid grey;
-    border-radius: 3px;
-    color: var(--lv_blue);
-    font-size: .8rem;
-    cursor: pointer;
-
-    
-}
 
 
 .lv_arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transform: translateY(-20%);
-    background-color: rgba(255, 255, 255, 0.8);
-    border: none;
+    background-color: rgba(0, 0, 0, 0.7);
     cursor: pointer;
-    z-index: 1000;
-    font-size: 36px; /* Aumentar el tamaño de la fuente para flechas más grandes */
-    padding: 0 15px; /* Ajustar el padding para mayor visibilidad y tocabilidad */
-    color: #333; /* Color más visible para las flechas */
+    z-index: 1001;
+    font-size: 36px;
+    color: #ffffff; 
+    height: 81px;
+    width: 20px;
+    border-radius: 3px;
 }
 
 .lv_arrow-left {
-    left: 10px;
+    position: absolute; 
+    top: 50%; 
+    left: 0; 
+    transform: translateY(-50%);
 }
 
 .lv_arrow-right {
-    right: 10px;
+    position: absolute; 
+    top: 50%; 
+    right: 0; 
+    transform: translateY(-50%);
+}
+
+.lv_arrow span{
+   
 }
 
 
@@ -169,6 +256,7 @@ h1,h2,h3, h4, h5, h6, p{
 /*  MAP */
 
 .lv_mapWrapper{
+    position: relative;
     flex-grow: 1;
 }
 
@@ -176,6 +264,27 @@ h1,h2,h3, h4, h5, h6, p{
 .lv_map-container {
     width: 100%;
     height: 100%;
+}
+
+.lv_inicio{
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    z-index: 10002;
+    cursor:pointer;
+}
+
+.lv_inicio span{
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background: #4a70f7;
+    color:#fff;
+    text-transform: uppercase;
+    font-family: 'HMedium', serif;
+    font-size: .9rem;
+    letter-spacing: .7px;
 }
 
 
@@ -186,27 +295,28 @@ h1,h2,h3, h4, h5, h6, p{
 
 
 .lv_modal {
-    position: fixed;
-    top: 10%;
-    left: 10%;
-    right: 10%;
-    bottom: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0; /* Inicialmente invisible */
-    transform: scale(0.95); /* Comienza un poco más pequeño */
-    transition: opacity 0.4s ease, transform 0.4s ease; /* Transición suave para opacidad y escala */
-    pointer-events: none; /* Evita interacción hasta que esté completamente visible */
-    z-index: 1000; /* Asegura que esté en el frente */
-    visibility: hidden; /* Asegura que no sea visible cuando está cerrado */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  z-index: 1000;
+  visibility: hidden;
+  max-height: 90vh;
+  width: 85vw;
+  max-width: 500px;;
 }
 
 .lv_modal.show {
-    opacity: 1; /* Hace el modal completamente visible */
-    transform: scale(1); /* Escala a tamaño normal */
-    pointer-events: auto; /* Permite interacción con el modal */
-    visibility: visible; /* Hace el modal visible cuando está activo */
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .lv_modal-content {
@@ -238,16 +348,27 @@ h1,h2,h3, h4, h5, h6, p{
 }
 .lv_modal-info {
     flex-grow: 1;
+    
 }
 
 .lv_modalInfoTitle{
     margin-bottom: 10px;
     font-size: 1.2rem;
+    font-family: 'HMedium', serif;
 }
 
 .lv_modalInfoDetail{
-    font-size: .9rem;
+    font-size: 1rem;
+    font-family: 'TRegular', serif;
 }
+
+.lv_modalInfoDetail span{
+  display: inline-block;
+  margin-left: 4px;
+  transform: rotate(30deg);
+}
+
+
 
 
 .lv_close {
@@ -258,6 +379,7 @@ h1,h2,h3, h4, h5, h6, p{
     background: none;
     border: none;
     color: black;
+    font-family: 'Trebuchet MS', sans-serif;
     font-size: 1.5em;
 }
 
