@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bounds.extend(item.coordsLoc);  
     });
         
-    const carousel = document.getElementById('lv_carousel_items');
+   
 
 
     const map = new mapboxgl.Map({
@@ -235,6 +235,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     map.addControl(new mapboxgl.NavigationControl());
+
+
+    const carousel = document.getElementById('lv_carousel_items');
+
+    const lv_itemInicio = document.createElement('div');
+    lv_itemInicio.className = 'lv_carousel-item';
+    lv_itemInicio.innerHTML = `
+        <div class="lv_carousel-itemWrapper">
+            <img src="./img/Cat.jpeg" alt="Inicio"> 
+            <div class="lv_carousel-caption"><p>Inicio</p></div>
+        </div>
+    `;
+    lv_itemInicio.onclick = lv_backToBounds; 
+    carousel.appendChild(lv_itemInicio);
     
 
     menuItems.forEach(item => {
@@ -251,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
         carousel.appendChild(div);
         div.onclick = () => handleCarouselItemClick(item);
 
-        const marker = new mapboxgl.Marker({ color: '#4a70f7' })
+        const marker = new mapboxgl.Marker({ color: '#db5e30' })
             .setLngLat(item.coordsLoc)
             .addTo(map)
             .getElement();
@@ -266,8 +280,6 @@ document.addEventListener('DOMContentLoaded', function () {
          
         hideModal();  
 
-    // Quitar cualquier evento anterior para evitar duplicados
-        /* map.off('moveend');   */
 
     
         map.flyTo({ center: item.coordsLoc, zoom: 16 });
