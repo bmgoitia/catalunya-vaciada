@@ -279,10 +279,10 @@ h1,h2,h3, h4, h5, h6, p{
     padding: 5px 10px;
     border: 1px solid #000;
     border-radius: 4px;
-    background: #4a70f7;
-    color:#fff;
+    background: #fff;
     text-transform: uppercase;
-    font-family: 'HMedium', serif;
+    font-family: 'TRegular', serif;
+    -webkit-font-smoothing: antialiased;
     font-size: .9rem;
     letter-spacing: .7px;
 }
