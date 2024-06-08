@@ -83,7 +83,15 @@ const menuItems=[
         "coordsLoc": [1.5637984456067122, 41.941699486176546],
         "urlTitle": "El mantra de menos papeleo y más vivienda",
         "urlLoc": "https://www.lavanguardia.com/vida/20240408/9586517/mantra-papeleo-mas-vivienda.html"
-    }
+    },
+    {
+        "nombreLoc": "Bovera",
+        "imgLoc": "./img/13_Bovera_mini.png",
+        "coordsLoc": [0.6382227864805495, 41.32659216117678],
+        "urlTitle": "Agua y croissants contra la despoblación",
+        "urlLoc": "https://www.lavanguardia.com/vida/20240609/9711155/agua-croissants-despoblacion.html"
+    },
+
 ];
 
 
