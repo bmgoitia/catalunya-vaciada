@@ -82,7 +82,14 @@
 
   
 
-  
+  span.iconlv{
+        font-size: 24px;
+        background: black;
+        color: rgba(255, 255, 255, 1);
+        font-variation-settings:
+            'FILL' 0,
+            'wght' 100,
+    }
   
 
 html{
