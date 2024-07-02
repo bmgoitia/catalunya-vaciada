@@ -101,6 +101,11 @@ const menuItems=[
 const lv_mapboxCoords = [1.6676800, 41.4204600];
 const lv_mapboxZoom = 6.4;
 
+let elWidth = document.querySelector('.lv_devWrapper').offsetWidth;
+console.log(elWidth);
+
+document.querySelector('#lv_title p').textContent=`_${elWidth}`;
+
 
 
 
